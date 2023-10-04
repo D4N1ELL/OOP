@@ -1,5 +1,5 @@
 package Lab2;
-import java.util.Date;
+
 public class Student {
     private String firstName;
     private String lastName;
@@ -17,24 +17,8 @@ public class Student {
         this.isGraduated = false;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
     public String getEmail() {
         return email;
-    }
-
-    public String getEnrollmentDate() {
-        return enrollmentDate;
-    }
-
-    public String getDateOfBirth() {
-        return dateOfBirth;
     }
 
     public boolean isGraduated() {
@@ -57,4 +41,3 @@ public class Student {
                 '}';
     }
 }
-

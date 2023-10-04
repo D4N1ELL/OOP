@@ -1,4 +1,5 @@
 package Lab2;
+
 import java.util.ArrayList;
 import java.util.List;
 public class University{
@@ -43,11 +44,11 @@ public class University{
         return text.toString();
     }
 
-    public void assignStudentToFaculty(String email, String abreviation) {
+    public void assignStudentToFaculty(String email, String abbreviation) {
         for (Student student : students){
             if (student.getEmail().equals(email)) {
                 for (Faculty faculty : faculties){
-                    if (faculty.getAbbreviation().equals(abreviation)) {
+                    if (faculty.getAbbreviation().equals(abbreviation)) {
                         faculty.addStudent(student);
                     }
                 }

@@ -1,20 +1,29 @@
 package Lab2;
 
+import Lab2.Faculty;
+import Lab2.Student;
+import Lab2.Studyfield;
+import Lab2.University;
+
 import java.util.Scanner;
+
 
 public class Program {
 
     private Scanner scanner;
     private University university;
     private String command;
+    private TextFile textfile;
 
     public Program() {
+        this.textfile = new TextFile();
         this.scanner = new Scanner(System.in);
         this.university = new University();
         this.command = "";
     }
 
     public void run() {
+        university = textfile.getUniversityFromFile();
         System.out.println("Welcome to UTM student system!!");
         System.out.println("Insert one of the specified combinations for needed task or q to quit");
         System.out.println("*-----------------------------Faculty operations-----------------------------*");
@@ -35,23 +44,14 @@ public class Program {
 
             String[] commandsList = this.command.split("/");
             switch (commandsList[0]) {
-                case "nf":
-                    handleFacultyCreate(commandsList);
-                    break;
-                case "df":
-                    printFaculties();
-                    break;
                 case "ns":
                     handleStudentCreate(commandsList);
                     break;
-                case "ds":
-                    printStudents();
-                    break;
-                case "as":
-                    assignStudentToFaculty(commandsList);
-                    break;
                 case "gs":
                     graduateStatus(commandsList);
+                    break;
+                case "ds":
+                    printStudents();
                     break;
                 case "dg":
                     printGraduates();
@@ -59,16 +59,26 @@ public class Program {
                 case "bf":
                     isBelongToFaculty(commandsList);
                     break;
-                case "edit this please":
+                case "nf":
+                    handleFacultyCreate(commandsList);
+                    break;
+                case "ss":
                     belongToFaculty(commandsList);
+                    break;
+                case "df":
+                    printFaculties();
                     break;
                 case "dff":
                     facultyField(commandsList);
+                    break;
+                case "as":
+                    assignStudentToFaculty(commandsList);
                     break;
                 default:
                     System.out.println("Invalid command");
             }
         }
+        this.textfile.saveUniversityToFile(this.university);
         scanner.close();
     }
 
@@ -104,8 +114,7 @@ public class Program {
         if (commands.length == 6) {
             addStudent(commands);
         } else {
-            System.out.println("Input error");
-            return;
+            System.out.println("Input error. Try making a faculty first");
         }
     }
 
