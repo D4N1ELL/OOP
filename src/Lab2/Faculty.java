@@ -2,7 +2,8 @@ package Lab2;
 
 import java.util.ArrayList;
 import java.util.List;
-public class Faculty{
+import java.io.Serializable;
+public class Faculty implements Serializable{
     private String name;
     private String abbreviation;
     private List<Student> students;

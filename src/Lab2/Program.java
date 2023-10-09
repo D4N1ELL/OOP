@@ -27,7 +27,7 @@ public class Program {
         System.out.println("Welcome to UTM student system!!");
         System.out.println("Insert one of the specified combinations for needed task or q to quit");
         System.out.println("*-----------------------------Faculty operations-----------------------------*");
-        System.out.println("|1. Create Student - ns/<faculty abbreviation>/<first name>/<last name>/<email>/<day>.<month>.<year> |");
+        System.out.println("|1. Create Student - ns/<faculty abbreviation>/<first name>/<last name>/<email>/<enrollment date>/<day>.<month>.<year> |");
         System.out.println("|2. Graduate Student - gs/<email>                                            |");
         System.out.println("|3. Display enrolled students - ds/<faculty abbreviation>                    |");
         System.out.println("|4. Display graduates - dg/<faculty abbreviation>                            |");
@@ -106,12 +106,17 @@ public class Program {
     }
 
     private void addStudent(String[] arguments) {
-        Student student = new Student(arguments[1], arguments[2], arguments[3], arguments[4], arguments[5]);
+        Student student = new Student(arguments[2], arguments[3], arguments[4], arguments[5], arguments[6]);
+        for (Faculty faculty : university.getFaculties()) {
+            if (faculty.getAbbreviation().equals(arguments[1])) {
+                faculty.addStudent(student);
+            }
+        }
         this.university.addStudent(student);
     }
 
     private void handleStudentCreate(String[] commands) {
-        if (commands.length == 6) {
+        if (commands.length == 7) {
             addStudent(commands);
         } else {
             System.out.println("Input error. Try making a faculty first");

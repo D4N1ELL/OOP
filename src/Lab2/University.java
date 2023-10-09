@@ -2,7 +2,8 @@ package Lab2;
 
 import java.util.ArrayList;
 import java.util.List;
-public class University{
+import java.io.Serializable;
+public class University implements Serializable{
     private List<Faculty> faculties = new ArrayList<>();
     private List<Student> students = new ArrayList<>();
 
@@ -15,6 +16,9 @@ public class University{
         students.add(student);
     }
 
+    public List<Faculty> getFaculties() {
+        return faculties;
+    }
 
     public String toStringFaculties() {
         return "University{" +
