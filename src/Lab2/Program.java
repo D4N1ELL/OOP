@@ -132,7 +132,7 @@ public class Program {
     }
 
     private void graduateStatus(String[] arguments){
-        university.graduateStatus(arguments[1], Boolean.valueOf(arguments[2]));
+        university.graduateStatus(arguments[1]);
     }
 
     private void printGraduates(){

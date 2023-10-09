@@ -60,10 +60,10 @@ public class University implements Serializable{
         }
     }
 
-    public void graduateStatus(String email, Boolean val){
+    public void graduateStatus(String email){
         for (Student student: students) {
             if (student.getEmail().equals(email)){
-                student.setGraduated(val);
+                student.setGraduated(true);
             }
         }
     }
