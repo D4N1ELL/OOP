@@ -2,6 +2,7 @@ package Lab2;
 import Lab2.University;
 import java.io.*;
 
+// TODO name better
 public class TextFile {
 
     public void saveUniversityToFile(University university) {

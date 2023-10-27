@@ -1,21 +1,16 @@
 package Lab2;
 
-import Lab2.Faculty;
-import Lab2.Student;
-import Lab2.Studyfield;
-import Lab2.University;
-
 import java.util.Scanner;
 
 
-public class Program {
+public class ApplicationLoop {
 
     private Scanner scanner;
     private University university;
     private String command;
     private TextFile textfile;
 
-    public Program() {
+    public ApplicationLoop() {
         this.textfile = new TextFile();
         this.scanner = new Scanner(System.in);
         this.university = new University();
@@ -131,6 +126,7 @@ public class Program {
         university.assignStudentToFaculty(arguments[1], arguments[2]);
     }
 
+    // example good name
     private void graduateStatus(String[] arguments){
         university.graduateStatus(arguments[1]);
     }
@@ -139,6 +135,7 @@ public class Program {
         System.out.println(university.toStringGraduates());
     }
 
+    // Be more consistent
     private void isBelongToFaculty(String[] arguments){
         university.isBelongToFaculty(arguments[1], arguments[2]);
     }
@@ -147,6 +144,7 @@ public class Program {
         university.belongToFaculty(arguments[1]);
     }
 
+    // use verbs for methods
     private void facultyField(String[] arguments) {
         university.facultyField(Studyfield.valueOf(arguments[1]));
     }
