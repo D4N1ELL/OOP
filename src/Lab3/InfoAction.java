@@ -1,4 +1,5 @@
-package Lab2;
+package Lab3;
+
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -12,7 +13,7 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class InfoAction extends FileAction {
-    private final String folderPath = "C:\\Users\\danie\\Desktop\\test2\\OOPLaboratory\\src\\Lab2\\Files";
+    private final String folderPath = "C:\\Users\\danie\\Desktop\\java projects\\OOPlabs\\src\\Lab3\\Test";
 
     @Override
     public void execute(String[] args) {
@@ -115,7 +116,7 @@ public class InfoAction extends FileAction {
         try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine().trim();
-                if (line.startsWith("public class ")) {
+                if (line.contains("public class ")) {
                     classCount++;
                 }
             }

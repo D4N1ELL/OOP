@@ -1,4 +1,4 @@
-package Lab2;
+package Lab3;
 
 import java.io.File;
 import java.util.Scanner;
@@ -10,7 +10,7 @@ public class Main {
         CommitAction commitAction = new CommitAction();
         Set<String> lastSnapshotFiles = new HashSet<>();
 
-        String folderPath = "C:\\Users\\danie\\Desktop\\test2\\OOPLaboratory\\src\\Lab2\\Files";
+        String folderPath = "C:\\Users\\danie\\Desktop\\java projects\\OOPlabs\\src\\Lab3\\Test";
         File folder = new File(folderPath);
 
         if (!folder.exists() || !folder.isDirectory()) {
@@ -25,7 +25,7 @@ public class Main {
         System.out.println("|1. commit                    |");
         System.out.println("|2. info <filename>           |");
         System.out.println("|3. status                    |");
-        System.out.println("|3. quit                      |");
+        System.out.println("|4. quit                      |");
         System.out.println("*-----------------------------*");
 
         while (running) {
@@ -69,3 +69,4 @@ public class Main {
         return snapshotFiles;
     }
 }
+

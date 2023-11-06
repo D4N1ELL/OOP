@@ -1,11 +1,12 @@
-package Lab2;
+package Lab3;
+
 import java.io.File;
 import java.util.Date;
 
 public class CommitAction extends FileAction {
     private Date snapshotTime;
 
-    public CommitAction() {
+    public CommitAction(){
         snapshotTime = new Date();
     }
 
@@ -18,4 +19,6 @@ public class CommitAction extends FileAction {
     public Date getSnapshotTime() {
         return snapshotTime;
     }
+
+
 }

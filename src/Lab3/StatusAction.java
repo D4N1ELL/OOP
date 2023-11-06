@@ -1,10 +1,9 @@
-package Lab2;
+package Lab3;
 
 import java.io.File;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-
 public class StatusAction extends FileAction {
     private Date lastSnapshotTime;
     private Set<String> lastSnapshotFiles;
@@ -16,7 +15,7 @@ public class StatusAction extends FileAction {
 
     @Override
     public void execute(String[] args) {
-        String folderPath = "C:\\Users\\danie\\Desktop\\test2\\OOPLaboratory\\src\\Lab2\\Files";
+        String folderPath = "C:\\Users\\danie\\Desktop\\java projects\\OOPlabs\\src\\Lab3\\Test";
         File folder = new File(folderPath);
 
         if (folder.exists() && folder.isDirectory()) {
