@@ -1,9 +1,9 @@
 package Lab3;
+import Lab3.FileAction;
 
-import java.io.File;
 import java.util.Date;
 
-public class CommitAction extends FileAction {
+public class CommitAction implements FileAction {
     private Date snapshotTime;
 
     public CommitAction(){
@@ -19,6 +19,4 @@ public class CommitAction extends FileAction {
     public Date getSnapshotTime() {
         return snapshotTime;
     }
-
-
 }

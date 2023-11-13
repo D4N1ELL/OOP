@@ -1,5 +1,6 @@
 ### IntelliJ IDEA ###
 out/
 cofee.java/
+*.pdf/
 !**/src/main/**/out/
 !**/src/test/**/out/

@@ -1,5 +1,7 @@
 package Lab3;
 
+import Lab3.Snapshot;
+
 import java.io.File;
 import java.util.Scanner;
 import java.util.HashSet;
@@ -56,17 +58,5 @@ public class Main {
         }
     }
 
-    private static Set<String> getSnapshotFiles(File folder) {
-        Set<String> snapshotFiles = new HashSet<>();
-        if (folder.exists() && folder.isDirectory()) {
-            File[] files = folder.listFiles();
-            if (files != null) {
-                for (File file : files) {
-                    snapshotFiles.add(file.getName());
-                }
-            }
-        }
-        return snapshotFiles;
-    }
-}
 
+}
