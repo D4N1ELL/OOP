@@ -4,6 +4,7 @@ import Lab3.Snapshot;
 import Lab3.TextInfo;
 import Lab3.PhotoInfo;
 import Lab3.CodeInfo;
+import Lab3.FileInfo;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -23,7 +24,7 @@ public class InfoAction implements FileAction {
     @Override
     public void execute(String[] args) {
         if (args.length < 2) {
-            System.out.println("Usage: info <filename>");
+            System.out.println("Use: info <filename>");
             return;
         }
 
@@ -36,7 +37,7 @@ public class InfoAction implements FileAction {
 
             System.out.println("File Name: " + file.getName());
             System.out.println("Extension: " + extension);
-            String createdDate = getCreatedDate(folderPath);
+            String createdDate = FileInfo.getCreatedDate(Path.of(folderPath));
             System.out.println("Created Date: " + createdDate);
             System.out.println("Last Modified Date: " + dateFormat.format(new Date(file.lastModified())));
 
@@ -44,16 +45,16 @@ public class InfoAction implements FileAction {
                 String imageSize = PhotoInfo.getImageDimensions(file);
                 System.out.println("Image Size: " + imageSize);
             } else if (extension.equals("txt")) {
-                int lineCount = getLineCount(file);
-                int wordCount = getWordCount(file);
-                int characterCount = getCharacterCount(file);
+                int lineCount = TextInfo.getLineCount(file);
+                int wordCount = TextInfo.getWordCount(file);
+                int characterCount = TextInfo.getCharacterCount(file);
                 System.out.println("Line Count: " + lineCount);
                 System.out.println("Word Count: " + wordCount);
                 System.out.println("Character Count: " + characterCount);
             } else if (extension.equals("py") || extension.equals("java")) {
-                int lineCount = getLineCount(file);
-                int classCount = getClassCount(file);
-                int methodCount = getMethodCount(file);
+                int lineCount = CodeInfo.getLineCount(file);
+                int classCount = CodeInfo.getClassCount(file);
+                int methodCount = CodeInfo.getMethodCount(file);
                 System.out.println("Line Count: " + lineCount);
                 System.out.println("Class Count: " + classCount);
                 System.out.println("Method Count: " + methodCount);

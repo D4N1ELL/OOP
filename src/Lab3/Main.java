@@ -39,7 +39,7 @@ public class Main {
             switch (command) {
                 case "commit":
                     commitAction.execute(parts);
-                    lastSnapshotFiles = getSnapshotFiles(folder);
+                    lastSnapshotFiles = Snapshot.getSnapshotFiles(folder);
                     break;
                 case "info":
                     InfoAction infoAction = new InfoAction();
@@ -57,6 +57,4 @@ public class Main {
             }
         }
     }
-
-
 }

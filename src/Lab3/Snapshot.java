@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Snapshot {
-    private static Set<String> getSnapshotFiles(File folder) {
+    static Set<String> getSnapshotFiles(File folder) {
         Set<String> snapshotFiles = new HashSet<>();
         if (folder.exists() && folder.isDirectory()) {
             File[] files = folder.listFiles();

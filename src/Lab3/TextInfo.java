@@ -11,18 +11,7 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class TextInfo {
-    protected String getCreatedDate(Path path) {
-        try {
-            BasicFileAttributes attributes = Files.readAttributes(path, BasicFileAttributes.class);
-            FileTime creationTime = attributes.creationTime();
-            return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(creationTime.toMillis()));
-        } catch (IOException e) {
-            return "N/A";
-        }
-    }
-
-
-    protected int getLineCount(File file) {
+    protected static int getLineCount(File file) {
         try (Scanner scanner = new Scanner(file)) {
             int lineCount = 0;
             while (scanner.hasNextLine()) {
@@ -35,7 +24,7 @@ public class TextInfo {
         }
     }
 
-    protected int getWordCount(File file) {
+    protected static int getWordCount(File file) {
         try (Scanner scanner = new Scanner(file)) {
             int wordCount = 0;
             while (scanner.hasNext()) {
@@ -48,7 +37,7 @@ public class TextInfo {
         }
     }
 
-    protected int getCharacterCount(File file) {
+    protected static int getCharacterCount(File file) {
         try (Scanner scanner = new Scanner(file)) {
             int characterCount = 0;
             while (scanner.hasNext()) {
