@@ -10,13 +10,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class FileInfo {
-    private final String folderPath = "C:\\JavaProjects\\OOP_UTM\\OOPLaboratory\\src\\Lab2\\Files";
+    private final String folderPath = "C:\\Users\\danie\\Desktop\\java projects\\OOPlabs\\src\\Lab3\\Test";
 
     public File getFile(String filename) {
         return new File(folderPath + File.separator + filename);
     }
 
-    public static String getCreatedDate(Path path) {
+    public String getCreatedDate(Path path) {
         try {
             BasicFileAttributes attributes = Files.readAttributes(path, BasicFileAttributes.class);
             FileTime creationTime = attributes.creationTime();
@@ -25,4 +25,5 @@ public class FileInfo {
             return "N/A";
         }
     }
+
 }

@@ -19,4 +19,5 @@ public class CommitAction implements FileAction {
     public Date getSnapshotTime() {
         return snapshotTime;
     }
+
 }

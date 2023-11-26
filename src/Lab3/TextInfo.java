@@ -1,17 +1,23 @@
 package Lab3;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.attribute.BasicFileAttributes;
-import java.nio.file.attribute.FileTime;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Scanner;
 
-public class TextInfo {
-    protected static int getLineCount(File file) {
+public class TextInfo extends StandartFile{
+    private final FileInfo fileInfo = new FileInfo();
+    File file = fileInfo.getFile(fileName);
+    int wordCount;
+    int lineCount;
+    int charCount;
+
+    public TextInfo(String fileName, String extension, String createdDate, String lastModifiedDate) {
+        super(fileName, extension, createdDate, lastModifiedDate);
+        this.lineCount = getLineCount();
+        this.wordCount = getWordCount();
+        this.charCount = getCharacterCount();
+    }
+
+    protected int getLineCount() {
         try (Scanner scanner = new Scanner(file)) {
             int lineCount = 0;
             while (scanner.hasNextLine()) {
@@ -24,7 +30,7 @@ public class TextInfo {
         }
     }
 
-    protected static int getWordCount(File file) {
+    protected int getWordCount() {
         try (Scanner scanner = new Scanner(file)) {
             int wordCount = 0;
             while (scanner.hasNext()) {
@@ -37,7 +43,7 @@ public class TextInfo {
         }
     }
 
-    protected static int getCharacterCount(File file) {
+    protected int getCharacterCount() {
         try (Scanner scanner = new Scanner(file)) {
             int characterCount = 0;
             while (scanner.hasNext()) {
@@ -48,5 +54,16 @@ public class TextInfo {
         } catch (Exception e) {
             return 0;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "File name: " + fileName + "\n" +
+                "Extension: " + extension + "\n" +
+                "Created date: " + createdDate + "\n" +
+                "Last modified date: " + lastModifiedDate + "\n" +
+                "Line count: " + lineCount + "\n" +
+                "Word count: " + wordCount + "\n" +
+                "Character count: " + charCount + "\n" ;
     }
 }

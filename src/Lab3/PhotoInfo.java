@@ -6,8 +6,12 @@ import java.io.File;
 import java.io.IOException;
 
 
-public class PhotoInfo {
-    protected static String getImageDimensions(File file) {
+public class PhotoInfo extends StandartFile{
+    private final FileInfo fileInfo = new FileInfo();
+    File file = fileInfo.getFile(fileName);
+    String dimension;
+
+    protected String getImageDimensions() {
         try {
             BufferedImage image = ImageIO.read(file);
             int width = image.getWidth();
@@ -18,7 +22,18 @@ public class PhotoInfo {
         }
     }
 
-    protected static int getImageSize(File file) {
-        return (int) file.length();
+    public PhotoInfo(String imageName, String extension, String createdDate, String lastModifiedDate) {
+        super(imageName, extension, createdDate, lastModifiedDate);
+        this.dimension = getImageDimensions();
+    }
+
+
+    @Override
+    public String toString() {
+        return "Image name: " + fileName + "\n" +
+                "Extension: " + extension + "\n" +
+                "Created date: " + createdDate + "\n" +
+                "Last modified date: " + lastModifiedDate + "\n" +
+                "Dimension: " + dimension + "\n";
     }
 }
