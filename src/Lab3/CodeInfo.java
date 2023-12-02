@@ -1,5 +1,7 @@
 package Lab3;
 
+import Lab3.FileInfo;
+
 import java.io.File;
 import java.util.Scanner;
 
@@ -17,7 +19,7 @@ public class CodeInfo extends StandartFile{
         this.methodCount = getMethodCount();
     }
 
-    protected static int getLineCount() {
+    protected int getLineCount() {
         try (Scanner scanner = new Scanner(file)) {
             int lineCount = 0;
             while (scanner.hasNextLine()) {
@@ -31,12 +33,12 @@ public class CodeInfo extends StandartFile{
     }
 
 
-    protected static int getClassCount() {
+    protected int getClassCount() {
         int classCount = 0;
         try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine().trim();
-                if (line.contains("public class ")) {
+                if (line.contains("class") || line.contains("enum")) {
                     classCount++;
                 }
             }
@@ -46,12 +48,12 @@ public class CodeInfo extends StandartFile{
         return classCount;
     }
 
-    protected static int getMethodCount() {
+    protected int getMethodCount() {
         int methodCount = 0;
         try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine().trim();
-                if (line.startsWith("def ") || line.startsWith("public void ")) {
+                if (line.contains("def") || line.contains("public void")) {
                     methodCount++;
                 }
             }

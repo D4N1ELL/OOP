@@ -49,7 +49,7 @@ public class Main {
                     StatusAction statusAction = new StatusAction(commitAction.getSnapshotTime(), lastSnapshotFiles);
                     statusAction.execute(parts);
                     break;
-                case "exit":
+                case "quit":
                     running = false;
                     break;
                 default:

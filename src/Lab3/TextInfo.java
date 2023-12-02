@@ -12,6 +12,9 @@ public class TextInfo extends StandartFile{
 
     public TextInfo(String fileName, String extension, String createdDate, String lastModifiedDate) {
         super(fileName, extension, createdDate, lastModifiedDate);
+
+
+
         this.lineCount = getLineCount();
         this.wordCount = getWordCount();
         this.charCount = getCharacterCount();
