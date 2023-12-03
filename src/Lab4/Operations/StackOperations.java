@@ -23,7 +23,7 @@ public class StackOperations {
 
             switch (choice) {
                 case 1:
-                    System.out.print("Enter element to push to stack: ");
+                    System.out.print("Enter 1 element to push to stack: ");
                     int element = scanner.nextInt();
                     stack.push(element);
                     break;
@@ -42,7 +42,7 @@ public class StackOperations {
                 case 0:
                     return;
                 default:
-                    System.out.println("Invalid choice. Please choose a valid option.");
+                    System.out.println("Invalid choice. Write choice number");
             }
         }
     }

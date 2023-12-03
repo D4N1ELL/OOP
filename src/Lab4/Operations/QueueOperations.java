@@ -23,7 +23,7 @@ public class QueueOperations {
 
             switch (choice) {
                 case 1:
-                    System.out.print("Enter element to enqueue to queue: ");
+                    System.out.print("Enter 1 element to enqueue to queue: ");
                     int element = scanner.nextInt();
                     queue.enqueue(element);
                     break;
@@ -42,7 +42,7 @@ public class QueueOperations {
                 case 0:
                     return;
                 default:
-                    System.out.println("Invalid choice. Please choose a valid option.");
+                    System.out.println("Invalid choice. Write choice number");
             }
         }
     }
