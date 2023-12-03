@@ -21,9 +21,9 @@ public class Main {
             System.out.println("|0. Exit                      |");
             System.out.println("*-----------------------------*");
 
-            int dataStructureChoice = scanner.nextInt();
+            int choice = scanner.nextInt();
 
-            switch (dataStructureChoice) {
+            switch (choice) {
                 case 1:
                     Stack arrayUpStack = new ArrayUpStack();
                     StackOperations arrayUpStackOperations = new StackOperations(arrayUpStack);
@@ -55,10 +55,10 @@ public class Main {
                     arrayDownQueueOperations.performQueueOperations(scanner);
                     break;
                 case 0:
-                    System.out.println("Exiting program.");
+                    System.out.println("Exiting program");
                     System.exit(0);
                 default:
-                    System.out.println("Invalid choice. Please choose a valid option.");
+                    System.out.println("Invalid choice. Write choice number");
             }
         }
     }
